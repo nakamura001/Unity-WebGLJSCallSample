@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | %UNITY_WEB_NAME%</title>
+    <style>
+    /* a style sheet needs to be present for cursor hiding and custom cursors to work. */
+    </style>
+    <script>
+	    function MyFunction1() {
+		    console.log("[MyFunction1]");
+	    }
+	    function MyFunction2(arg) {
+		    console.log("[MyFunction2]");
+		    // 引数が1つと確定している時
+		    console.log("arg:"+arg);
+	    }
+	    function MyFunction3(arg) {
+		    console.log("[MyFunction3]");
+		    console.log("arg:"+arg);
+		    // 引数の数が確定してない時
+			for (var i = 0; i < arguments.length; i++) {
+    		    console.log("arguments[" + i + "]" + arguments[i]);
+    		}
+	    }
+	    </script>
+  </head>
+  <body>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="%UNITY_HEIGHT%px" width="%UNITY_WIDTH%px"></canvas>
+    %UNITY_WEBGL_LOADER_GLUE%
+  </body>
+</html>
