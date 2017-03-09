@@ -12,11 +12,15 @@ public class Test : MonoBehaviour {
 		#endif
 	}
 
-	public void ExternalCall() {
+	public void ExternalCall1() {
 		Application.ExternalCall("MyFunction1");
-		// Calls MyFunction2 in the web page with a string
+	}
+
+	public void ExternalCall2() {
 		Application.ExternalCall("MyFunction2", "Hello from Unity!");
-		// Calls MyFunction3 in the web page with several arguments of different types
+	}
+
+	public void ExternalCall3() {
 		Application.ExternalCall("MyFunction3", "one", 2, 3.0F);
 	}
 

@@ -7,21 +7,28 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
     <script>
+	    var result;
+	    window.onload = function()
+		{
+		    result = document.getElementById("result");
+		};
 	    function MyFunction1() {
-		    console.log("[MyFunction1]");
+		    result.innerHTML = "[MyFunction1]";
 	    }
 	    function MyFunction2(arg) {
-		    console.log("[MyFunction2]");
+		    res = "[MyFunction2]<br>";
 		    // 引数が1つと確定している時
-		    console.log("arg:"+arg);
+		    res += "arg:"+arg;
+		    result.innerHTML = res;
 	    }
 	    function MyFunction3(arg) {
-		    console.log("[MyFunction3]");
-		    console.log("arg:"+arg);
+		    res = "[MyFunction3]<br>";
+		    res += "arg:"+arg+"<br>";
 		    // 引数の数が確定してない時
 			for (var i = 0; i < arguments.length; i++) {
-    		    console.log("arguments[" + i + "]" + arguments[i]);
+			    res += "arguments[" + i + "]" + arguments[i]+"<br>";
     		}
+		    result.innerHTML = res;
 	    }
 	    function SendTextToUnity() {
 			var inputText = document.getElementById("input_text");
@@ -38,9 +45,14 @@
       <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
       <div class="title">%UNITY_WEB_NAME%</div>
     </div>
+    <div>
+		<div>
+		ここにテキストを入力：<input id="input_text" type="input" value="abc"><input onClick="SendTextToUnity()" type="button" value="Send">
+		</div>
+		<div>
+		[Unity側からのアクションの結果]<div id="result" />
+		</div>
+    </div>
     %UNITY_WEBGL_LOADER_GLUE%
-	<div>
-	ここにテキストを入力：<input id="input_text" type="input" value="abc"><input onClick="SendTextToUnity()" type="button" value="Send">
-	</div>
   </body>
 </html>
